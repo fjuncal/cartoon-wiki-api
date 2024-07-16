@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import Cartoon from './cartoon.entity';
 import { CartoonRepository } from './cartoon.repository';
 
@@ -10,5 +10,10 @@ export class CartoonController {
   async criar(@Body() cartoon: Cartoon) {
     const novoCartoon = await this.cartoonRepository.criar(cartoon);
     return novoCartoon;
+  }
+
+  @Get()
+  async obterTodos() {
+    return await this.cartoonRepository.obterTodos();
   }
 }

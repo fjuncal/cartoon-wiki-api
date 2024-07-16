@@ -1,8 +1,14 @@
+
+GET  http://localhost:3000/cartoon HTTP/1.1
+
+
+###
+
 POST http://localhost:3000/cartoon HTTP/1.1
 content-type: application/json
 
 {
-    "nome": "Testando",
-    "descricao": "blablabla",
-    "foto": "fotoooo"
+    "nome": "Testando novamente 22222222",
+    "descricao": "21321321321",
+    "foto": "231312321"
 }
