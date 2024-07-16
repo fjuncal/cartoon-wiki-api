@@ -1,1 +1,8 @@
-POST  http://localhost:3000/cartoon
+POST http://localhost:3000/cartoon HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Testando",
+    "descricao": "blablabla",
+    "foto": "fotoooo"
+}
