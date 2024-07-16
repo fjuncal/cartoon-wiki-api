@@ -20,3 +20,14 @@ content-type: application/json
     "descricao": "21321321321",
     "foto": "231312321"
 }
+
+###
+
+PATCH  http://localhost:3000/cartoon/1 HTTP/1.1
+content-type: application/json
+
+{
+    "nome": "Testando novamente 22222222",
+    "descricao": "21321321321",
+    "foto": "231312321"
+}

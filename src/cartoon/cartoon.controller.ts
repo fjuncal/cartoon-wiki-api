@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
 import Cartoon from './cartoon.entity';
 import { CartoonRepository } from './cartoon.repository';
 
@@ -30,6 +38,19 @@ export class CartoonController {
   async deletar(@Param('id') id: string) {
     try {
       return await this.cartoonRepository.deletar(+id);
+    } catch (e) {
+      return e;
+    }
+  }
+
+  @Patch(':id')
+  async atualizar(@Param('id') id: string, @Body() cartoon: Cartoon) {
+    try {
+      const usuarioAtualizado = await this.cartoonRepository.atualizar({
+        ...cartoon,
+        id: +id,
+      });
+      return usuarioAtualizado;
     } catch (e) {
       return e;
     }
