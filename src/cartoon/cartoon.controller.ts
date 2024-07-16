@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import Cartoon from './cartoon.entity';
 import { CartoonRepository } from './cartoon.repository';
 
@@ -18,7 +18,11 @@ export class CartoonController {
   }
 
   @Get(':id')
-  async obterPorId(id: number) {
-    return await this.cartoonRepository.obterPorId(id);
+  async obterPorId(@Param('id') id: string) {
+    try {
+      return await this.cartoonRepository.obterPorId(+id);
+    } catch (e) {
+      return e;
+    }
   }
 }
