@@ -9,3 +9,10 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+model Cartoon{
+  id Int @id @default(autoincrement())
+  nome String
+  descricao String
+  foto String
+}
