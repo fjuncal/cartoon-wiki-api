@@ -25,4 +25,8 @@ export class CartoonRepository {
       data: cartoon as any,
     });
   }
+
+  async deletar(id: number) {
+    return await this.prismaService.cartoon.delete({ where: { id } });
+  }
 }
