@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import Cartoon from './cartoon.entity';
 import { CartoonRepository } from './cartoon.repository';
 
@@ -21,6 +21,15 @@ export class CartoonController {
   async obterPorId(@Param('id') id: string) {
     try {
       return await this.cartoonRepository.obterPorId(+id);
+    } catch (e) {
+      return e;
+    }
+  }
+
+  @Delete(':id')
+  async deletar(@Param('id') id: string) {
+    try {
+      return await this.cartoonRepository.deletar(+id);
     } catch (e) {
       return e;
     }
