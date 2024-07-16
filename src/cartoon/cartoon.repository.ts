@@ -19,7 +19,7 @@ export class CartoonRepository {
   }
 
   async atualizar(cartoon: Cartoon) {
-    if (!cartoon.id) return null;
+    if (!cartoon.id) throw new Error('Cartoon não possui id');
     return await this.prismaService.cartoon.update({
       where: { id: cartoon.id },
       data: cartoon as any,
