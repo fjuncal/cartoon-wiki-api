@@ -16,4 +16,9 @@ export class CartoonController {
   async obterTodos() {
     return await this.cartoonRepository.obterTodos();
   }
+
+  @Get(':id')
+  async obterPorId(id: number) {
+    return await this.cartoonRepository.obterPorId(id);
+  }
 }
